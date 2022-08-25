@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.miga.ui.presentation.navigationUI.*
+import com.example.miga.ui.presentation.screens.GoldBars
 import com.example.miga.ui.theme.migaColors
 import com.google.accompanist.pager.ExperimentalPagerApi
 import kotlinx.coroutines.launch
@@ -21,17 +22,18 @@ import kotlinx.coroutines.launch
 @ExperimentalPagerApi
 @Composable
 fun MainScreen() {
-    val tabs = listOf(TabItem.Currency, TabItem.NearestPoints)
     Surface(modifier = Modifier.fillMaxHeight()) {
-        DrawerContent(tabs)
+        DrawerContent()
     }
 }
 
+@ExperimentalMaterialApi
+@ExperimentalFoundationApi
+@ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @Composable
-private fun DrawerContent(
-    tabs: List<TabItem>,
-) {
+private fun DrawerContent() {
+    val tabs = listOf(TabItem.Currency, TabItem.NearestPoints)
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     val openDrawer = { scope.launch { drawerState.open() } }
@@ -55,13 +57,16 @@ private fun DrawerContent(
     {
         NavHost(
             navController = navController,
-            startDestination = DrawerScreens.Currency.route,
+            startDestination = DrawerScreens.GoldBars.route,
             builder = {
                 composable(DrawerScreens.Currency.route) {
                     CurrencyScreenTab(openDrawer = { openDrawer() }, tabs)
                 }
                 composable(DrawerScreens.Account.route) {
                     NearestPointsScreenTab(openDrawer = { openDrawer() }, tabs)
+                }
+                composable(DrawerScreens.GoldBars.route) {
+                    GoldBars { openDrawer() }
                 }
             }
         )

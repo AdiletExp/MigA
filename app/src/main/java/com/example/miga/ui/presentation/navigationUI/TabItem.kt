@@ -14,6 +14,7 @@ import com.example.miga.ui.presentation.screens.NearestPointsScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.Job
 
 typealias ComposableFun = @Composable () -> Unit
 
@@ -22,6 +23,7 @@ enum class TabItem(var title: String, var screen: ComposableFun) {
     @ExperimentalFoundationApi
     @ExperimentalMaterialApi
     Currency("КУРСЫ ВАЛЮТ", { CurrencyScreen() }),
+
     @ExperimentalFoundationApi
     NearestPoints("БЛИЖАЙШИЕ ПУНКТЫ", { NearestPointsScreen() });
 }
@@ -44,7 +46,7 @@ internal fun CurrencyScreenTab(
 
 @ExperimentalPagerApi
 @Composable
-internal fun NearestPointsScreenTab(openDrawer: () -> Unit, tabs: List<TabItem>) {
+internal fun NearestPointsScreenTab(openDrawer: () -> Job, tabs: List<TabItem>) {
     val pagerState = rememberPagerState()
     Column {
         TopBar(buttonIcon = Icons.Filled.Menu, onButtonClicked = { openDrawer() })
