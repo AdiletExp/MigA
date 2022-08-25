@@ -30,7 +30,7 @@ enum class TabItem(var title: String, var screen: ComposableFun) {
 
 @ExperimentalPagerApi
 @Composable
-internal fun CurrencyScreenTab(
+ internal fun CurrencyScreenTab(
     openDrawer: () -> Unit,
     tabs: List<TabItem>,
 ) {

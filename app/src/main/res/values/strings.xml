@@ -68,4 +68,5 @@
     <string name="national_bank_rk">Национального\nбанка РК</string>
     <string name="back_cancel">back/cancel</string>
     <string name="location_country">Location Country</string>
+    <string name="this_is_my_text_to_send">This is my text to send.</string>
 </resources>

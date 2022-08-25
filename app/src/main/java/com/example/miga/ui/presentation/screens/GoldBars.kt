@@ -30,7 +30,7 @@ internal fun GoldBars(openDrawer: () -> Job) {
     val toast = LocalContext.current
     CompositionLocalProvider(LocalOverscrollConfiguration provides null) {
         Column {
-            TopBar(buttonIcon = Icons.Filled.Menu, onButtonClicked = { openDrawer() })
+            TopBar(buttonIcon = Icons.Filled.Menu, onButtonClicked = { openDrawer()  })
             LazyColumn {
                 itemsIndexed(nearestPointsListState) { _, item ->
                     Row(modifier = Modifier

@@ -37,7 +37,7 @@ internal fun TopBar(buttonIcon: ImageVector, onButtonClicked: () -> Unit) {
                     .clickable {
                         val sendIntent: Intent = Intent().apply {
                             action = Intent.ACTION_SEND
-                            putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                            putExtra(Intent.EXTRA_TEXT, context.getString(R.string.this_is_my_text_to_send))
                             type = "text/plain"
                         }
                         val shareIntent = Intent.createChooser(sendIntent, null)
