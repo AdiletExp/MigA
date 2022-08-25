@@ -32,7 +32,7 @@ fun BottomSheetContent(
     val coroutineScope = rememberCoroutineScope()
 
     if (!state.isVisible) {
-        LaunchedEffect(key1 = "") {
+        LaunchedEffect(key1 = "closeKeyboard") {
             coroutineScope.launch { focusManager.clearFocus() }
         }
     }

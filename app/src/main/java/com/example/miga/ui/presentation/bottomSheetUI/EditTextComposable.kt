@@ -24,6 +24,7 @@ import kotlinx.coroutines.launch
 fun EditTextComposable(modifier: Modifier, value: Double, icon: ImageVector, visible: Boolean) {
     val focusManager = LocalFocusManager.current
     val valueCurrency = remember { mutableStateOf("") }
+
     val coroutineScope = rememberCoroutineScope()
     Log.d("TAG", "EditTextComposable: $value")
 
