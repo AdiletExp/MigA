@@ -27,7 +27,7 @@ fun AlertDialogForTextView(openDialog: MutableState<Boolean>, text: MutableState
                 Column(modifier = Modifier.background(migaColors.onPrimary),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally) {
-                    Button(onClick = { openDialog.value = true },
+                    Button(onClick = { openDialog.value = false },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp),
@@ -53,7 +53,7 @@ fun AlertDialogForTextView(openDialog: MutableState<Boolean>, text: MutableState
                                 text.value = stringResource(R.string.chinese_yuan)
                             }
                             stringResource(R.string.gold) -> {
-                                text.value = stringResource(R.string.gold_bars)
+                                text.value = stringResource(R.string.gold_bars_1gr)
                             }
                             stringResource(R.string.chf) -> {
                                 text.value = stringResource(R.string.swiss_franc)
@@ -104,7 +104,7 @@ fun AlertDialogForTextView(openDialog: MutableState<Boolean>, text: MutableState
                                 text.value = stringResource(R.string.japanese_Yen)
                             }
                         }
-                        if (text.value == stringResource(R.string.gold_bars)) Text(text = text.value,
+                        if (text.value == stringResource(R.string.gold_bars_1gr)) Text(text = text.value,
                             color = migaColors.secondaryVariant)
                         else Text(text = text.value, color = migaColors.surface)
                     }

@@ -18,7 +18,7 @@ import com.example.miga.R
 import com.example.miga.ui.theme.migaColors
 
 @Composable
-fun Drawer(modifier: Modifier = Modifier, onDestinationClicked: (route: String) -> Unit) {
+internal fun Drawer(modifier: Modifier = Modifier, onDestinationClicked: (route: String) -> Unit) {
     Column(modifier
         .fillMaxSize()
         .padding(top = 16.dp)

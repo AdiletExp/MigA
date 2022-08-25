@@ -1,4 +1,4 @@
-package com.example.miga.models
+package com.example.miga.domain.models
 
 data class CurrencyModel(
     val purchase: Double,

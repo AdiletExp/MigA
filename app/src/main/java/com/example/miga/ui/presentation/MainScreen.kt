@@ -1,57 +1,41 @@
 package com.example.miga.ui.presentation
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.miga.ui.presentation.navigationUI.*
 import com.example.miga.ui.theme.migaColors
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.PagerState
-import com.google.accompanist.pager.pagerTabIndicatorOffset
-import com.google.accompanist.pager.rememberPagerState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
+@ExperimentalComposeUiApi
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
 fun MainScreen() {
-    val navController = rememberNavController()
     val tabs = listOf(TabItem.Currency, TabItem.NearestPoints)
-    val pagerState = rememberPagerState()
-
-    Surface(modifier = Modifier
-        .fillMaxHeight()) {
-        val drawerState = rememberDrawerState(DrawerValue.Closed)
-        val scope = rememberCoroutineScope()
-        val openDrawer = { scope.launch { drawerState.open() } }
-        DrawerContent(
-            navController = navController,
-            drawerState = drawerState,
-            scope = scope,
-            openDrawer = openDrawer,
-            tabs,
-            pagerState)
+    Surface(modifier = Modifier.fillMaxHeight()) {
+        DrawerContent(tabs)
     }
 }
 
 @ExperimentalPagerApi
 @Composable
-fun DrawerContent(
-    navController: NavHostController,
-    drawerState: DrawerState,
-    scope: CoroutineScope,
-    openDrawer: () -> Job,
+private fun DrawerContent(
     tabs: List<TabItem>,
-    pagerState: PagerState,
 ) {
+    val drawerState = rememberDrawerState(DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    val openDrawer = { scope.launch { drawerState.open() } }
+    val navController = rememberNavController()
     ModalDrawer(
         drawerState = drawerState,
         gesturesEnabled = drawerState.isOpen,
@@ -74,34 +58,12 @@ fun DrawerContent(
             startDestination = DrawerScreens.Currency.route,
             builder = {
                 composable(DrawerScreens.Currency.route) {
-                    CurrencyScreenTab(openDrawer = { openDrawer() }, tabs, pagerState)
+                    CurrencyScreenTab(openDrawer = { openDrawer() }, tabs)
                 }
                 composable(DrawerScreens.Account.route) {
-                    NearestPointsScreenTab(openDrawer = { openDrawer() }, tabs, pagerState)
+                    NearestPointsScreenTab(openDrawer = { openDrawer() }, tabs)
                 }
             }
         )
-    }
-}
-
-
-@ExperimentalPagerApi
-@Composable
-fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
-    val scope = rememberCoroutineScope()
-    TabRow(
-        selectedTabIndex = pagerState.currentPage,
-        backgroundColor = migaColors.surface,
-        contentColor = migaColors.primary,
-        indicator = { tabPositions ->
-            TabRowDefaults.Indicator(Modifier.pagerTabIndicatorOffset(pagerState, tabPositions))
-        }) {
-        tabs.forEachIndexed { index, tab ->
-            Tab(
-                text = { Text(tab.title) },
-                selected = pagerState.currentPage == index,
-                onClick = { scope.launch { pagerState.animateScrollToPage(index) } }
-            )
-        }
     }
 }

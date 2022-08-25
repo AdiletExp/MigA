@@ -29,7 +29,7 @@
     <string name="kyrgyz_som">Киргизский сом</string>
     <string name="pound_sterling">Фунт стерлинга</string>
     <string name="chinese_yuan">Китайский юань</string>
-    <string name="gold_bars">Золотые слитки, 1 гр.</string>
+    <string name="gold_bars_1gr">Золотые слитки, 1 гр.</string>
     <string name="swiss_franc">Швейцарский франк</string>
     <string name="hong_kong_dollar">Гонконгский доллар</string>
     <string name="georgian_lari">Грузинский лари</string>
@@ -52,6 +52,7 @@
     <string name="currency">Валют</string>
     <string name="now_data">На 18 августа 2022 11:00</string>
     <string name="additional_currencies">Дополнительные валюты</string>
+    <string name="collapse_currencies">Свернуть валюты</string>
     <string name="drop_down">DropDown</string>
     <string name="book_the_amount_or_course">Забронировать сумму/курс</string>
     <string name="license_data">Лицензии №7520029 от 23.09.2020</string>
@@ -63,4 +64,8 @@
     <string name="network_of_exchange_offices">Сеть обменных пунктов</string>
     <string name="share">Share</string>
     <string name="menu">menu</string>
+    <string name="gold_bars">Золотые\nслитки</string>
+    <string name="national_bank_rk">Национального\nбанка РК</string>
+    <string name="back_cancel">back/cancel</string>
+    <string name="location_country">Location Country</string>
 </resources>

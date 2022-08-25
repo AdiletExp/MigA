@@ -4,30 +4,24 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class DrawerScreens(val title: String, val route: String, val icon: ImageVector) {
-    object Currency : DrawerScreens("Главная", "Currency", Icons.Default.Home)
-    object Account : DrawerScreens("Забронировать сумму/курс", "account", Icons.Default.Face)
-    object GoldBars : DrawerScreens("Золотые слитки НБ РК", "account", Icons.Default.Face)
-    object NearestPoints : DrawerScreens("Ближайшие пункты", "account", Icons.Default.LocationOn)
-    object FinancialNewsAndAnalytics :
-        DrawerScreens("Финансовые новости и аналитика", "account", Icons.Default.Face)
-
-    object ArchiveOfCourses : DrawerScreens("Архив курсов", "account", Icons.Default.Face)
-    object CoursesOfTheNB : DrawerScreens("Курсы НацБанка РК", "account", Icons.Default.Face)
-    object LoginRegistration : DrawerScreens("Вход/Регистрация", "account", Icons.Default.Refresh)
-    object AboutTheCompany : DrawerScreens("О Компании", "account", Icons.Default.Info)
-    object HowToFindUs : DrawerScreens("Как нас найти?", "account", Icons.Default.Search)
-    object InformationForClients :
-        DrawerScreens("Информация для клиентов", "account", Icons.Default.Warning)
-
-    object GetADiscount : DrawerScreens("Получить скидку %", "account", Icons.Default.ThumbUp)
-    object Notifications : DrawerScreens("Уведомления", "account", Icons.Default.Face)
-    object ReviewsAndSuggestions :
-        DrawerScreens("Отзывы и предложения", "account", Icons.Default.Face)
-
-    object Vacancy : DrawerScreens("Вакансии", "account", Icons.Default.MoreVert)
-    object Agreement : DrawerScreens("Соглашение", "account", Icons.Default.Face)
-    object Share : DrawerScreens("Поделиться", "account", Icons.Default.Share)
+enum class DrawerScreens(val title: String, val route: String, val icon: ImageVector) {
+    Currency("Главная", "Currency", Icons.Default.Home),
+    Account("Забронировать сумму/курс", "account", Icons.Default.Face),
+    GoldBars("Золотые слитки НБ РК", "account", Icons.Default.Face),
+    NearestPoints("Ближайшие пункты", "account", Icons.Default.LocationOn),
+    FinancialNewsAndAnalytics("Финансовые новости и аналитика", "account", Icons.Default.Face),
+    ArchiveOfCourses("Архив курсов", "account", Icons.Default.Face),
+    CoursesOfTheNB("Курсы НацБанка РК", "account", Icons.Default.Face),
+    LoginRegistration("Вход/Регистрация", "account", Icons.Default.Refresh),
+    AboutTheCompany("О Компании", "account", Icons.Default.Info),
+    HowToFindUs("Как нас найти?", "account", Icons.Default.Search),
+    InformationForClients("Информация для клиентов", "account", Icons.Default.Warning),
+    GetADiscount("Получить скидку %", "account", Icons.Default.ThumbUp),
+    Notifications("Уведомления", "account", Icons.Default.Face),
+    ReviewsAndSuggestions("Отзывы и предложения", "account", Icons.Default.Face),
+    Vacancy("Вакансии", "account", Icons.Default.MoreVert),
+    Agreement("Соглашение", "account", Icons.Default.Face),
+    Share("Поделиться", "account", Icons.Default.Share);
 }
 
 internal val screens = listOf(

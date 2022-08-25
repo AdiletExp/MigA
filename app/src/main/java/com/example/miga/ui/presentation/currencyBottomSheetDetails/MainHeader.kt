@@ -21,24 +21,19 @@ import com.example.miga.ui.theme.migaColors
 @Composable
 fun MainHeader(modifier: Modifier) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(modifier = modifier,
-            Arrangement.Center,
-            Alignment.CenterVertically) {
-            Column(modifier = Modifier
-                .weight(1f),
-                Arrangement.Center,
-                Alignment.CenterHorizontally) {
+        Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {//
+            Column(modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = stringResource(R.string.course),
                     fontSize = 30.sp,
                     color = migaColors.surface)
-                Text(text = "Золотые \n слитки", textAlign = TextAlign.Center,
+                val res = stringResource(id = R.string.gold_bars)
+                Text(text = res, textAlign = TextAlign.Center,
                     modifier = Modifier.padding(top = 20.dp),
                     fontSize = 14.sp, color = migaColors.surface)
             }
-            Column(modifier = Modifier
-                .weight(1f),
-                Arrangement.Center,
-                Alignment.CenterHorizontally) {
+            Column(modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally) {
                 Image(painter = painterResource(id = R.drawable.ic_hu_tao),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
@@ -46,14 +41,12 @@ fun MainHeader(modifier: Modifier) {
                         .size(100.dp)
                         .clip(RoundedCornerShape(corner = CornerSize(50.dp))))
             }
-            Column(modifier = Modifier
-                .weight(1f),
-                Arrangement.Center,
-                Alignment.CenterHorizontally) {
+            Column(modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = stringResource(R.string.currency),
                     fontSize = 30.sp,
                     color = migaColors.surface)
-                Text(text = "Национального \nбанка РК",
+                Text(text = stringResource(R.string.national_bank_rk),
                     modifier = Modifier.padding(top = 20.dp),
                     fontSize = 14.sp,
                     textAlign = TextAlign.Center,

@@ -1,7 +1,7 @@
 package com.example.miga.ui.presentation.currencyBottomSheetDetails
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,9 +14,7 @@ import com.example.miga.ui.theme.migaColors
 
 @Composable
 fun BehindCard(modifier: Modifier) {
-    Column(modifier = modifier,
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(text = stringResource(R.string.book_the_amount_or_course),
             modifier = Modifier.padding(10.dp),
             color = migaColors.primary)

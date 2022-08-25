@@ -1,6 +1,8 @@
 package com.example.miga.utils
 
-import com.example.miga.models.CurrencyModel
+import com.example.miga.R
+import com.example.miga.domain.models.CurrencyModel
+import com.example.miga.domain.models.NearestPointsModel
 
 object DataProvider {
     val currencyList = mutableListOf(
@@ -27,5 +29,15 @@ object DataProvider {
         CurrencyModel(170.0, "ILS", null, 120.0),
         CurrencyModel(42.5, "KRW", "100:1", 34.5),
         CurrencyModel(3.9, "JPY", null, 2.7),
+    )
+    val nearestPointsList = mutableListOf(
+        NearestPointsModel(R.drawable.ic_rus, "Volgograd"),
+        NearestPointsModel(R.drawable.ic_vnm, "Hanoi"),
+        NearestPointsModel(R.drawable.ic_srb, "Belgrade"),
+        NearestPointsModel(R.drawable.ic_kgz, "Astana"),
+        NearestPointsModel(R.drawable.ic_jpn, "Kyoto"),
+        NearestPointsModel(R.drawable.ic_deu, "Berlin"),
+        NearestPointsModel(R.drawable.ic_chn, "Beijing"),
+        NearestPointsModel(R.drawable.ic_blr, "Minsk"),
     )
 }
