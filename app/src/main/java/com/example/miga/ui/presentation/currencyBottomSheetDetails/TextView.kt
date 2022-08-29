@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.miga.R
 import com.example.miga.domain.models.CurrencyModel
-import com.example.miga.ui.presentation.alertDialogUI.AlertDialogForTextView
+import com.example.miga.ui.presentation.common.alertDialogUI.AlertDialog
 import com.example.miga.ui.theme.migaColors
 
 @Composable
@@ -27,7 +27,7 @@ fun TextView(
     openDialog: MutableState<Boolean>,
 ) {
     val openDialogText = remember { mutableStateOf(currencyModel.currency) }
-    AlertDialogForTextView(openDialog = openDialog, text = openDialogText)
+    AlertDialog(openDialog = openDialog, text = openDialogText)
 
     Column(modifier = modifier.size(70.dp, 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

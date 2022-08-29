@@ -34,15 +34,18 @@ fun CurrencyBottomSheetScreen(
     state: ModalBottomSheetState,
     textNumber: MutableState<Double>,
     textCurrency: MutableState<String>,
-    porchesValue: MutableState<Double>,
-    saleValue: MutableState<Double>,
+    porchesValue: MutableState<Number>,
+    saleValue: MutableState<Number>,
+    statusStartAndEnd: MutableState<Boolean>,
+    newPorchesValue: MutableState<Number>,
+    newSaleValue: MutableState<Number>,
 ) {
     val listStateDraw = remember { mutableStateOf(false) }
     val currenciesListState = remember { DataProvider.currencyList }
     val cardSizeState = remember { mutableStateOf(30.dp) }
     val buttonTextChange = remember { mutableStateOf(R.string.additional_currencies) }
     val buttonIconChange = remember { mutableStateOf(Icons.Default.ArrowDropDown) }
-    val scope = rememberCoroutineScope()
+    val coroutineScope = rememberCoroutineScope()
 
     Surface(modifier = Modifier
         .padding(start = 20.dp, top = 30.dp, end = 20.dp, bottom = cardSizeState.value),
@@ -57,19 +60,25 @@ fun CurrencyBottomSheetScreen(
                         textNumber = textNumber,
                         textCurrency = textCurrency,
                         porchesValue = porchesValue,
-                        saleValue = saleValue)
+                        saleValue = saleValue,
+                        statusStartAndEnd = statusStartAndEnd,
+                        newPorchesValue = newPorchesValue,
+                        newSaleValue = newSaleValue)
                 } else itemsIndexed(currenciesListState.slice(0..6)) { _, item ->
                     BoxItemValue(currencyModel = item,
                         state = state,
                         textNumber = textNumber,
                         textCurrency = textCurrency,
                         porchesValue = porchesValue,
-                        saleValue = saleValue)
+                        saleValue = saleValue,
+                        statusStartAndEnd = statusStartAndEnd,
+                        newPorchesValue = newPorchesValue,
+                        newSaleValue = newSaleValue)
                 }
                 item {
                     BottomButton(
                         modifier = Modifier.clickable {
-                            scope.launch {
+                            coroutineScope.launch {
                                 if (!listStateDraw.value) {
                                     listStateDraw.value = true
                                     cardSizeState.value = 0.dp

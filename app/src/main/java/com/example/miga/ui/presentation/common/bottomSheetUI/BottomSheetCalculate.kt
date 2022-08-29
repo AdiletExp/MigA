@@ -1,4 +1,4 @@
-package com.example.miga.ui.presentation.bottomSheetUI
+package com.example.miga.ui.presentation.common.bottomSheetUI
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,8 +25,11 @@ fun BottomSheetContent(
     textNumber: Double,
     textCurrency: MutableState<String>,
     state: ModalBottomSheetState,
-    porchesValue: MutableState<Double>,
-    saleValue: MutableState<Double>,
+    porchesValue: MutableState<Number>,
+    saleValue: MutableState<Number>,
+    statusStartAndEnd: MutableState<Boolean>,
+    newPorchesValue: MutableState<Number>,
+    newSaleValue: MutableState<Number>,
 ) {
     val focusManager = LocalFocusManager.current
     val coroutineScope = rememberCoroutineScope()
@@ -51,6 +54,11 @@ fun BottomSheetContent(
             }, textCurrency)
 
         BottomSheetMiddle(textNumber)
-        BottomSheetUnder(state.isVisible, porchesValue, saleValue)
+        BottomSheetUnder(visible = state.isVisible,
+            porchesValue = porchesValue,
+            saleValue = saleValue,
+            statusStartAndEnd = statusStartAndEnd,
+            newPorchesValue = newPorchesValue,
+            newSaleValue = newSaleValue)
     }
 }

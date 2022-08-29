@@ -35,8 +35,8 @@ fun MainScreen() {
 private fun DrawerContent() {
     val tabs = listOf(TabItem.Currency, TabItem.NearestPoints)
     val drawerState = rememberDrawerState(DrawerValue.Closed)
-    val scope = rememberCoroutineScope()
-    val openDrawer = { scope.launch { drawerState.open() } }
+    val coroutineScope = rememberCoroutineScope()
+    val openDrawer = { coroutineScope.launch { drawerState.open() } }
     val navController = rememberNavController()
     ModalDrawer(
         drawerState = drawerState,
@@ -45,7 +45,7 @@ private fun DrawerContent() {
         drawerContent = {
             Drawer(
                 onDestinationClicked = { route ->
-                    scope.launch { drawerState.close() }
+                    coroutineScope.launch { drawerState.close() }
                     navController.navigate(route) {
                         navController.graph.startDestinationId
                         launchSingleTop = true

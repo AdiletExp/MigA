@@ -1,4 +1,4 @@
-package com.example.miga.ui.presentation.alertDialogUI
+package com.example.miga.ui.presentation.common.alertDialogUI
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,7 +17,7 @@ import com.example.miga.R
 import com.example.miga.ui.theme.migaColors
 
 @Composable
-fun AlertDialogForTextView(openDialog: MutableState<Boolean>, text: MutableState<String>) {
+fun AlertDialog(openDialog: MutableState<Boolean>, text: MutableState<String>) {
     if (openDialog.value) {
         AlertDialog(
             modifier = Modifier.padding(top = 600.dp),

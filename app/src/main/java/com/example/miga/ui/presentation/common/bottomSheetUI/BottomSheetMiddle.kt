@@ -1,4 +1,4 @@
-package com.example.miga.ui.presentation.bottomSheetUI
+package com.example.miga.ui.presentation.common.bottomSheetUI
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

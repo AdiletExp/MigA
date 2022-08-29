@@ -58,7 +58,7 @@ internal fun TopBar(buttonIcon: ImageVector, onButtonClicked: () -> Unit) {
 @ExperimentalPagerApi
 @Composable
 internal fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
-    val scope = rememberCoroutineScope()
+    val coroutineScope = rememberCoroutineScope()
     TabRow(
         selectedTabIndex = pagerState.currentPage,
         backgroundColor = migaColors.surface,
@@ -70,7 +70,7 @@ internal fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
             Tab(
                 text = { Text(tab.title) },
                 selected = pagerState.currentPage == index,
-                onClick = { scope.launch { pagerState.animateScrollToPage(index) } }
+                onClick = { coroutineScope.launch { pagerState.animateScrollToPage(index) } }
             )
         }
     }
