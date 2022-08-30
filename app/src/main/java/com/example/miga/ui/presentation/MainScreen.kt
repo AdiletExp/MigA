@@ -1,5 +1,6 @@
 package com.example.miga.ui.presentation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.*
@@ -14,8 +15,13 @@ import com.example.miga.ui.presentation.navigationUI.*
 import com.example.miga.ui.presentation.screens.GoldBars
 import com.example.miga.ui.theme.migaColors
 import com.google.accompanist.pager.ExperimentalPagerApi
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
+@FlowPreview
+@ExperimentalAnimationApi
 @ExperimentalComposeUiApi
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
@@ -27,6 +33,9 @@ fun MainScreen() {
     }
 }
 
+@FlowPreview
+@ExperimentalCoroutinesApi
+@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
@@ -66,7 +75,9 @@ private fun DrawerContent() {
                     NearestPointsScreenTab(openDrawer = { openDrawer() }, tabs)
                 }
                 composable(DrawerScreens.GoldBars.route) {
-                    GoldBars { openDrawer() }
+                    //todo searchView
+                    GoldBars(openDrawer = { openDrawer() },
+                        modifier = Modifier)
                 }
             }
         )
